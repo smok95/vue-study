@@ -1,0 +1,23 @@
+<!-- 조건 및 반복 -->
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app-3">
+        <p v-if="seen">이제 나를 볼 수 있어요!</p>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app-3',
+            data: {
+                seen: true
+            }
+        })
+    </script>
+</body>
+
+</html>

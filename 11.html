@@ -1,0 +1,39 @@
+<!-- event -->
+<html>
+
+<head>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <style></style>
+</head>
+
+<body>
+    <div id="app">
+        <my-button v-bind:text="text" v-on:onclick="printLog"></my-button>
+    </div>
+
+    <script>
+        Vue.component('my-button', {
+            template: '<div v-on:click="onclickButton">{{text}}</div>',
+            props: ['text'],
+            methods: {
+                onclickButton: function () {
+                    this.$emit('onclick')
+                }
+            }
+        })
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                text: 'Test Button'
+            },
+            methods:{
+                printLog:function() {
+                    console.log('button clicked')
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

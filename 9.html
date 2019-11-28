@@ -1,0 +1,46 @@
+<!-- Conponent -->
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{value}}
+        <my-component></my-component>
+        <local-component></local-component>
+    </div>
+
+    <div id="app2">
+        {{value}}
+        <my-component></my-component>
+    </div>
+    <script>
+
+        Vue.component('my-component', {
+            template: "<div>This is global component</div>"
+        })
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                value: 1
+            },
+            components: {
+                "local-component": {
+                    template: "<div>This is local component</div>"
+                }
+            }
+        })
+
+        var app2 = new Vue({
+            el: '#app2',
+            data: {
+                value: 2
+            }
+        })
+    </script>
+</body>
+
+</html>
