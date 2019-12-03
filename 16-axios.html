@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <title>axios</title>
+</head>
+
+<body>
+    <div id="app">
+        <button v-on:click="getData">프레임워크 목록 가져오기</button>
+    </div>
+</body>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script src="node_modules/axios/dist/axios.js"></script>
+<script>
+    var app = new Vue({        
+        methods: {
+            getData: function () {
+                axios.get('https://raw.githubusercontent.com/joshua1988/doit-vuejs/master/data/demo.json')
+                .then(function(res) {
+                    console.log(res)
+                })
+            }
+        }
+    }).$mount('#app')
+</script>
+
+</html>

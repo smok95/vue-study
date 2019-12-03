@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <title>Directives</title>
+</head>
+
+<body>
+    <div id="app">        
+        <button v-on:click="onClickButton">{{buttonText}}</button>
+        <p v-if="flag">Do it Vue.js</p>
+        <p v-show="flag">Do it Vue.js</p>
+        <ul>
+            <li v-for="system in systems">{{system}}</li>
+        </ul>
+        <h5 v-bind:id="uid">Vue Guide</h5>
+    </div>
+
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            data: {
+                flag: false,
+                systems: [
+                    "android", "ios", "windows", "linux", "macos"
+                ],
+                buttonText: 'Show',
+                uid:11
+            },
+            methods: {
+                onClickButton: function () {
+                    this.flag = !this.flag
+                    this.buttonText = this.flag ? "Hide" : "Show"
+                }
+            }
+        }).$mount('#app')
+    </script>
+</body>
+
+</html>
